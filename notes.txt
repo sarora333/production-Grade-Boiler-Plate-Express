@@ -1,0 +1,10 @@
+Why these specific scripts?
+npm run dev: This is where you'll spend 99% of your time. By explicitly setting NODE_ENV=development, our logger.js knows to trigger pino-pretty. Nodemon handles the auto-restart so you don't have to kill the terminal every time you save a file.
+
+npm start: Used for production (like on Render, Railway, or AWS). It uses the standard node command for maximum speed and turns off the "pretty" logs to save CPU.
+
+npm run lint:fix -The "lazy pro" command. It doesn't just find mistakes; it automatically fixes things like missing semicolons or wrong indentation based on your rules.
+
+npm run test:ui    : Since you have Vitest, this opens a beautiful web-based dashboard in your browser to see your tests passing in real-time.
+
+npm run format  - Runs Prettier to clean up your code style across the entire project instantly.

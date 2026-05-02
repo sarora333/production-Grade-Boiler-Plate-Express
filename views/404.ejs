@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 — Not Found</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700&family=Syne:wght@400;600;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="404.css" />
+</head>
+<body>
+
+  <div class="grid-bg"></div>
+  <div class="noise-overlay"></div>
+  <div class="scan-line"></div>
+
+  <!-- NAV -->
+  <nav class="navbar">
+    <div class="nav-brand">
+      <span class="dot"></span>
+      <span class="brand-text">express<span class="accent">.</span>dev</span>
+    </div>
+    <a href="/" class="nav-home-btn">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+        <polyline points="9 22 9 12 15 12 15 22"/>
+      </svg>
+      Home
+    </a>
+  </nav>
+
+  <!-- MAIN -->
+  <main class="container">
+
+    <!-- Giant glitchy 404 -->
+    <div class="glitch-wrap" aria-label="404">
+      <span class="glitch" data-text="404">404</span>
+    </div>
+
+    <!-- Terminal card -->
+    <div class="terminal">
+      <div class="terminal-header">
+        <span class="t-dot red"></span>
+        <span class="t-dot yellow"></span>
+        <span class="t-dot green"></span>
+        <span class="t-title">bash — express server</span>
+      </div>
+      <div class="terminal-body">
+        <p class="t-line">
+          <span class="prompt">GET</span>
+          <span class="path" id="currentPath">/unknown-route</span>
+          <span class="status-code">404</span>
+        </p>
+        <p class="t-line dim">Cannot <span class="kw">GET</span> the requested resource.</p>
+        <p class="t-line dim">The route does not exist on this server.</p>
+        <p class="t-line blink-line">
+          <span class="prompt-sym">$</span>
+          <span class="cursor">_</span>
+        </p>
+      </div>
+    </div>
+
+    <!-- Message -->
+    <p class="sub-msg">
+      Looks like this route went into the void.<br />
+      Head back and try something that actually exists.
+    </p>
+
+    <!-- CTA -->
+    <a href="/" class="home-btn" id="homeBtn">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+        <polyline points="9 22 9 12 15 12 15 22"/>
+      </svg>
+      Back to Home
+    </a>
+
+    <!-- Error tag row -->
+    <div class="tag-row">
+      <span class="tag">ERR_ROUTE_NOT_FOUND</span>
+      <span class="tag">HTTP 404</span>
+      <span class="tag">Express.js</span>
+    </div>
+
+  </main>
+
+  <script src="404.js"></script>
+</body>
+</html>
