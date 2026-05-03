@@ -1,0 +1,4 @@
+# Test how multiple parts work together (routes + DB) for example 
+userRoutes.test.js
+authRoutes.test.js
+test your actual API endpoints, hits the DB, checks real responses. Example: "does POST /api/register create a user and return 201?"

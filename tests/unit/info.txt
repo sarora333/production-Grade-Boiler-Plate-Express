@@ -1,0 +1,4 @@
+# Test individual functions/services in isolation like for example
+userService.test.js
+│emailUtils.test.js
+est a single function or service in isolation, no DB or server involved. Example: "does generateToken() return a valid JWT?"
