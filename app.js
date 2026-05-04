@@ -8,6 +8,7 @@ import hpp from "hpp";
 import compression from "compression";
 import cookieParser from "cookie-parser";
 import globalErrorHandler from "./src/middlewares/errorMiddleware.js";
+import bookRoutes from "./src/routes/bookRoutes.js";
 import { env } from "./src/config/env.js";
 
 const app = express();
@@ -57,12 +58,15 @@ app.get("/", (req, res) => {
   res.render("home");
 });
 
-// 6. 404 Handler for undefined routes
+// 6. API Routes
+app.use("/api/v1/books", bookRoutes);
+
+// 7. 404 Handler for undefined routes
 app.use((req, res, next) => {
   res.status(404).render("404");
 });
 
-// 7. Global Error Handler (MUST be last)
+// 8. Global Error Handler (MUST be last)
 app.use(globalErrorHandler);
 
 export default app;

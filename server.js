@@ -11,24 +11,27 @@ process.on("uncaughtException", (err) => {
   process.exit(1);
 });
 
-// 2. Connect to Database
-connectDB();
+// 2. Bootstrap: Connect to DB, then start server
+const startServer = async () => {
+  await connectDB();
 
-// 3. Start Server
-const port = env.PORT || 8000;
-const server = app.listen(port, () => {
-  logger.info(`🚀 Server is running in ${env.NODE_ENV} mode`);
-  logger.info(`📡 URL: http://localhost:${port}`);
-});
-
-// 4. Handle Unhandled Rejections (Asynchronous errors)
-// Example: A failed database query without a .catch() block
-process.on("unhandledRejection", (err) => {
-  logger.fatal("💥 UNHANDLED REJECTION! Shutting down...");
-  logger.error(err.name, err.message);
-
-  // Gracefully close the server before exiting
-  server.close(() => {
-    process.exit(1);
+  const port = env.PORT || 8000;
+  const server = app.listen(port, () => {
+    logger.info(`🚀 Server is running in ${env.NODE_ENV} mode`);
+    logger.info(`📡 URL: http://localhost:${port}`);
   });
-});
+
+  // 3. Handle Unhandled Rejections (Asynchronous errors)
+  // Example: A failed database query without a .catch() block
+  process.on("unhandledRejection", (err) => {
+    logger.fatal("💥 UNHANDLED REJECTION! Shutting down...");
+    logger.error(err.name, err.message);
+
+    // Gracefully close the server before exiting
+    server.close(() => {
+      process.exit(1);
+    });
+  });
+};
+
+startServer();
