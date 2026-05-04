@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login</title>
+  <link rel="stylesheet" href="/css/auth.css" />
+</head>
+<body>
+  <div class="auth-container">
+    <div class="auth-card">
+      <h2>Welcome Back</h2>
+      <p class="subtitle">Log in to your account</p>
+      
+      <div id="error-message" class="error-msg hidden"></div>
+
+      <form id="loginForm" class="auth-form">
+        <div class="input-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required placeholder="john@example.com">
+          <span class="field-error" id="email-error"></span>
+        </div>
+
+        <div class="input-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" required placeholder="••••••••">
+          <span class="field-error" id="password-error"></span>
+        </div>
+
+        <button type="submit" class="submit-btn" id="submitBtn">Log In</button>
+      </form>
+
+      <div class="auth-footer">
+        Don't have an account? <a href="/signup">Sign up here</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/login.js"></script>
+</body>
+</html>

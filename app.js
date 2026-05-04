@@ -9,6 +9,7 @@ import compression from "compression";
 import cookieParser from "cookie-parser";
 import globalErrorHandler from "./src/middlewares/errorMiddleware.js";
 import bookRoutes from "./src/routes/bookRoutes.js";
+import authRoutes from "./src/routes/authRoutes.js";
 import { env } from "./src/config/env.js";
 
 const app = express();
@@ -58,8 +59,22 @@ app.get("/", (req, res) => {
   res.render("home");
 });
 
+// View routes — serve EJS pages
+app.get("/signup", (req, res) => {
+  res.render("signup");
+});
+
+app.get("/login", (req, res) => {
+  res.render("login");
+});
+
+app.get("/user/home", (req, res) => {
+  res.render("userHome");
+});
+
 // 6. API Routes
 app.use("/api/v1/books", bookRoutes);
+app.use("/api/v1/auth", authRoutes);
 
 // 7. 404 Handler for undefined routes
 app.use((req, res, next) => {

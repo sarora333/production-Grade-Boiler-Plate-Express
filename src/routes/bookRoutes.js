@@ -7,8 +7,12 @@ import {
   mongoIdSchema,
 } from "../validators/bookValidator.js";
 import { z } from "zod";
+import authenticate from "../middlewares/auth.js";
 
 const router = Router();
+
+// Apply authentication to all book routes
+router.use(authenticate);
 
 // Wrap mongoIdSchema in an object schema so validate middleware can parse req.params
 const paramsIdSchema = z.object({ id: mongoIdSchema });

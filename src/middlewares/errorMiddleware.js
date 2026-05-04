@@ -1,5 +1,5 @@
 import ApiResponse from "../utils/apiRes.js";
-import ApiError from "../utils/apiErrror.js";
+import ApiError from "../utils/apiError.js";
 import logger from "../utils/logger.js";
 
 const sendErrorDev = (err, res) => {

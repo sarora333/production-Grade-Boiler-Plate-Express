@@ -1,4 +1,4 @@
-import ApiError from "../utils/apiErrror.js";
+import ApiError from "../utils/apiError.js";
 
 /**
  * Generic Zod validation middleware.

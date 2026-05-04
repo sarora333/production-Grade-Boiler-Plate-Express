@@ -1,5 +1,5 @@
 import Book from "../models/Book.js";
-import ApiError from "../utils/apiErrror.js";
+import ApiError from "../utils/apiError.js";
 
 /**
  * Create a new book.

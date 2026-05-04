@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Dashboard</title>
+  <link rel="stylesheet" href="/css/user.css" />
+</head>
+<body>
+  <nav class="user-nav">
+    <div class="nav-brand">express.dev</div>
+    <button id="logoutBtn" class="logout-btn">Log Out</button>
+  </nav>
+
+  <main class="dashboard">
+    <div class="sidebar">
+      <button class="tab-btn active" data-tab="info">My Info</button>
+      <button class="tab-btn" data-tab="addBook">Add Book</button>
+      <button class="tab-btn" data-tab="myBooks">My Books</button>
+    </div>
+
+    <div class="content">
+      <!-- Info Tab -->
+      <section id="info" class="tab-content active">
+        <h2>My Information</h2>
+        <div id="infoCard" class="card loading">
+          <p>Loading user information...</p>
+        </div>
+      </section>
+
+      <!-- Add Book Tab -->
+      <section id="addBook" class="tab-content hidden">
+        <h2>Add a New Book</h2>
+        <form id="addBookForm" class="card form-card">
+          <div class="input-group">
+            <label for="bookTitle">Title</label>
+            <input type="text" id="bookTitle" name="title" required>
+          </div>
+          <div class="input-group">
+            <label for="authorName">Author</label>
+            <input type="text" id="authorName" name="author" required>
+          </div>
+          <div class="input-group">
+            <label for="publishedDate">Published Date</label>
+            <input type="date" id="publishedDate" name="publishedDate" required>
+          </div>
+          <button type="submit" class="submit-btn">Save Book</button>
+          <div id="bookMessage" class="message"></div>
+        </form>
+      </section>
+
+      <!-- My Books Tab -->
+      <section id="myBooks" class="tab-content hidden">
+        <h2>My Books</h2>
+        <div id="booksList" class="books-grid">
+          <p>Loading books...</p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Book Details Modal -->
+  <div id="bookModal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <h2 id="modalTitle">Book Title</h2>
+      <p><strong>Author:</strong> <span id="modalAuthor"></span></p>
+      <p><strong>Published Date:</strong> <span id="modalDate"></span></p>
+    </div>
+  </div>
+
+  <script src="/js/user.js"></script>
+</body>
+</html>

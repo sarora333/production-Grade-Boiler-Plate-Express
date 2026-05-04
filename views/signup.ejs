@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign Up</title>
+  <link rel="stylesheet" href="/css/auth.css" />
+</head>
+<body>
+  <div class="auth-container">
+    <div class="auth-card">
+      <h2>Create an Account</h2>
+      <p class="subtitle">Join us and start building today</p>
+      
+      <div id="error-message" class="error-msg hidden"></div>
+
+      <form id="signupForm" class="auth-form">
+        <div class="input-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required placeholder="John Doe">
+          <span class="field-error" id="name-error"></span>
+        </div>
+
+        <div class="input-group">
+          <label for="mobile">Mobile</label>
+          <input type="text" id="mobile" name="mobile" required placeholder="1234567890">
+          <span class="field-error" id="mobile-error"></span>
+        </div>
+
+        <div class="input-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required placeholder="john@example.com">
+          <span class="field-error" id="email-error"></span>
+        </div>
+
+        <div class="input-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" required placeholder="••••••••">
+          <span class="field-error" id="password-error"></span>
+        </div>
+
+        <button type="submit" class="submit-btn" id="submitBtn">Sign Up</button>
+      </form>
+
+      <div class="auth-footer">
+        Already have an account? <a href="/login">Log in here</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/signup.js"></script>
+</body>
+</html>

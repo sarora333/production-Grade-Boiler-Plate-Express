@@ -14,10 +14,20 @@ const envSchema = z.object({
     .min(1, "MONGO_URI is required for the database connection"),
 
   // 3. Security (JWT)
-  JWT_SECRET: z
+  ACCESS_TOKEN_SECRET: z
     .string()
-    .min(32, "JWT_SECRET should be at least 32 characters for security"),
-  JWT_EXPIRES_IN: z.string().default("7d"),
+    .min(
+      32,
+      "ACCESS_TOKEN_SECRET should be at least 32 characters for security",
+    ),
+  REFRESH_TOKEN_SECRET: z
+    .string()
+    .min(
+      32,
+      "REFRESH_TOKEN_SECRET should be at least 32 characters for security",
+    ),
+  ACCESS_TOKEN_EXPIRY: z.string().default("15m"),
+  REFRESH_TOKEN_EXPIRY: z.string().default("7d"),
 
   // 4. CORS
   CORS_ORIGIN: z.string().url().default("http://localhost:5173"),
@@ -38,3 +48,15 @@ if (!_env.success) {
 }
 
 export const env = _env.data;
+
+export const {
+  NODE_ENV,
+  PORT,
+  MONGO_URI,
+  ACCESS_TOKEN_SECRET,
+  REFRESH_TOKEN_SECRET,
+  ACCESS_TOKEN_EXPIRY,
+  REFRESH_TOKEN_EXPIRY,
+  CORS_ORIGIN,
+  LOG_LEVEL,
+} = env;
